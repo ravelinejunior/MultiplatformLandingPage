@@ -5,7 +5,7 @@ import com.raveline.landingpage.model.EnumSection
 import com.raveline.landingpage.model.Theme
 import com.raveline.landingpage.styles.LogoStyle
 import com.raveline.landingpage.styles.NavigationItemStyle
-import com.raveline.landingpage.util.Constants.ROBOTO_FONT_FAMILY
+import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextDecorationLine
@@ -83,9 +83,9 @@ fun RightSide() {
             Link(
                 modifier = NavigationItemStyle.toModifier()
                     .padding(right = 30.px)
-                    .fontFamily(ROBOTO_FONT_FAMILY)
+                    .fontFamily(LATO_FONT_FAMILY)
                     .fontSize(18.px)
-                    .fontWeight(FontWeight.SemiBold)
+                    .fontWeight(FontWeight.Normal)
                     .textDecorationLine(TextDecorationLine.None),
                 path = section.path,
                 text = section.title,

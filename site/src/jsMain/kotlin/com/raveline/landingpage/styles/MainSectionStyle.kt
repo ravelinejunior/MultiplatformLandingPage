@@ -52,3 +52,14 @@ val LogoStyle by ComponentStyle {
         }
     }
 }
+
+val SocialLinkStyle by ComponentStyle {
+    base {
+        Modifier
+            .color(Theme.Gray.rgb)
+            .transition(CSSTransition(property = "color", duration = 500.ms))
+    }
+    hover {
+        Modifier.color(Theme.Primary.rgb)
+    }
+}
