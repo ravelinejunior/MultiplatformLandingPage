@@ -60,6 +60,6 @@ val SocialLinkStyle by ComponentStyle {
             .transition(CSSTransition(property = "color", duration = 500.ms))
     }
     hover {
-        Modifier.color(Theme.Primary.rgb)
+        Modifier.color(Theme.Primary.rgb    )
     }
 }

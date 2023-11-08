@@ -29,7 +29,6 @@ import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
-import org.jetbrains.compose.web.css.dppx
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
@@ -51,14 +50,14 @@ fun Header() {
 
 @Composable
 fun LeftSide(breakpoint: Breakpoint) {
-    Row {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
 
         if (breakpoint <= Breakpoint.MD) {
             FaBars(
-                modifier = Modifier.margin(
-                    right = 16.dppx,
-                    left = 16.dppx
-                ).padding(right = 16.px),
+                modifier = Modifier
+                    .margin(right = 16.px),
                 size = IconSize.XL
             )
         }
@@ -73,7 +72,8 @@ fun LeftSide(breakpoint: Breakpoint) {
 @Composable
 fun RightSide() {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
             .borderRadius(r = 50.px)
             .backgroundColor(Theme.LighterGray.rgb)
             .padding(all = 20.px),
