@@ -25,3 +25,6 @@ kotlin-js-store
 # Gradle ignores
 .gradle
 
+/local.properties
+/.idea/vcs.xml
+/.idea/.name
