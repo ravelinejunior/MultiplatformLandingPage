@@ -4,8 +4,10 @@ package com.raveline.landingpage.styles
 
 import com.raveline.landingpage.model.Theme
 import com.varabyte.kobweb.compose.css.CSSTransition
+import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.transform
 import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.width
@@ -14,6 +16,7 @@ import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.anyLink
 import com.varabyte.kobweb.silk.components.style.hover
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
+import org.jetbrains.compose.web.css.borderRadius
 import org.jetbrains.compose.web.css.deg
 import org.jetbrains.compose.web.css.filter
 import org.jetbrains.compose.web.css.ms
@@ -26,8 +29,8 @@ val NavigationItemStyle by ComponentStyle {
         Modifier.color(Theme.Secondary.rgb)
             .transition(
                 CSSTransition(
-                    property = "color", duration = 500.ms
-                )
+                    property = "color", duration = 600.ms
+                ),
             )
     }
     anyLink {
@@ -35,6 +38,12 @@ val NavigationItemStyle by ComponentStyle {
     }
     hover {
         Modifier.color(Theme.Primary.rgb)
+            .fontWeight(FontWeight.Bolder)
+            .transition(
+                CSSTransition(
+                    property = "style", duration = 600.ms
+                )
+            )
     }
 }
 
@@ -88,9 +97,10 @@ val MainImageStyle by ComponentStyle {
             .styleModifier {
                 filter {
                     grayscale(100.percent)
+                    borderRadius(r = 16.px)
                 }
             }.transition(
-                CSSTransition(property = "width", duration = 600.ms)
+                CSSTransition(property = "width", duration = 200.ms)
             )
     }
     hover {

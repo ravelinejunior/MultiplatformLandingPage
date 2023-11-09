@@ -1,6 +1,7 @@
 package com.raveline.landingpage.pages
 
 import androidx.compose.runtime.Composable
+import com.raveline.landingpage.sections.AboutSection
 import com.raveline.landingpage.sections.MainBackground
 import com.raveline.landingpage.sections.MainSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -19,5 +20,6 @@ fun HomePage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         MainSection()
+        AboutSection()
     }
 }
