@@ -5,10 +5,13 @@ import com.raveline.landingpage.components.Header
 import com.raveline.landingpage.components.SocialBar
 import com.raveline.landingpage.model.EnumSection
 import com.raveline.landingpage.model.Theme
+import com.raveline.landingpage.styles.MainButtonStyle
+import com.raveline.landingpage.styles.MainImageStyle
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Constants.LOREM_IPSUM_LONG
 import com.raveline.landingpage.util.Constants.SECTION_WIDTH
 import com.raveline.landingpage.util.Res
+import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
@@ -24,6 +27,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.border
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
@@ -42,6 +46,7 @@ import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
@@ -184,7 +189,8 @@ fun MainText(breakpoint: Breakpoint) {
             }
 
             Button(
-                attrs = Modifier
+                attrs = MainButtonStyle
+                    .toModifier()
                     .height(40.px)
                     .border(width = 0.px)
                     .borderRadius(r = 8.px)
@@ -192,6 +198,7 @@ fun MainText(breakpoint: Breakpoint) {
                     .fontFamily(LATO_FONT_FAMILY)
                     .backgroundColor(Theme.Primary.rgb)
                     .color(Colors.White)
+                    .cursor(Cursor.Pointer)
                     .toAttrs()
             ) {
                 Link(
@@ -212,7 +219,9 @@ fun MainImage() {
         Modifier.fillMaxSize(80.percent).fillMaxHeight().margin(top = 16.px)
     ) {
         Image(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = MainImageStyle
+                .toModifier()
+                .fillMaxWidth(),
             src = Res.Image.us,
             description = "Main Image",
         )

@@ -7,6 +7,7 @@ import com.raveline.landingpage.styles.LogoStyle
 import com.raveline.landingpage.styles.NavigationItemStyle
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Res
+import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -15,6 +16,7 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
+import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -62,7 +64,9 @@ fun LeftSide(breakpoint: Breakpoint) {
             )
         }
         Image(
-            modifier = LogoStyle.toModifier(),
+            modifier = LogoStyle
+                .toModifier()
+                .cursor(Cursor.Pointer),
             src = Res.Image.logo,
             description = "Logo Image",
         )
