@@ -47,7 +47,7 @@ fun SkillBar(
                 attrs =
                 Modifier
                     .fontFamily(LATO_FONT_FAMILY)
-                    .fontSize(20.px)
+                    .fontSize(18.px)
                     .fontWeight(FontWeight.Normal)
                     .color(Theme.Secondary.rgb)
                     .toAttrs()

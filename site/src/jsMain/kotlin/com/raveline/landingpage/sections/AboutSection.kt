@@ -1,7 +1,7 @@
 package com.raveline.landingpage.sections
 
 import androidx.compose.runtime.Composable
-import com.raveline.landingpage.components.SkillBar
+import com.raveline.landingpage.components.SectionTitle
 import com.raveline.landingpage.model.EnumSection
 import com.raveline.landingpage.util.Constants
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -22,6 +22,9 @@ fun AboutSection() {
             .padding(topBottom = 160.px),
         contentAlignment = Alignment.TopCenter
     ) {
-       SkillBar("Creativity")
+        SectionTitle(
+            section = EnumSection.About,
+            alignment = Alignment.End
+        )
     }
 }
