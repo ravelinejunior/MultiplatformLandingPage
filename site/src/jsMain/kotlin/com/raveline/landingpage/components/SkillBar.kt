@@ -17,6 +17,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.height
+import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -36,19 +37,21 @@ fun SkillBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .margin(bottom = 8.px)
             .maxWidth(520.px)
             .padding(topBottom = 6.px)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().margin(bottom = 4.px),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             P(
                 attrs =
                 Modifier
+                    .margin(topBottom = 0.px)
                     .fontFamily(LATO_FONT_FAMILY)
                     .fontSize(18.px)
-                    .fontWeight(FontWeight.Normal)
+                    .fontWeight(FontWeight.Bold)
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {
@@ -58,9 +61,10 @@ fun SkillBar(
             P(
                 attrs =
                 Modifier
+                    .margin(topBottom = 0.px)
                     .fontFamily(LATO_FONT_FAMILY)
                     .fontSize(18.px)
-                    .fontWeight(FontWeight.Normal)
+                    .fontWeight(FontWeight.Bold)
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ) {

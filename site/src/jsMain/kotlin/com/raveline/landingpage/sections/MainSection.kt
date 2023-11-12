@@ -14,6 +14,7 @@ import com.raveline.landingpage.util.Res
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.Height
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -38,6 +39,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.maxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.objectFit
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
@@ -224,8 +226,9 @@ fun MainImage() {
         Image(
             modifier = MainImageStyle
                 .toModifier()
-                .fillMaxWidth(),
-            src = Res.Image.us,
+                .fillMaxWidth()
+            ,
+            src = Res.Image.car,
             description = "Main Image",
         )
     }
