@@ -29,7 +29,7 @@ val AboutImageStyle by ComponentStyle {
                 }
             }
             .borderRadius(
-                4.px
+                12.px
             )
             .rotate(0.deg)
             .transition(

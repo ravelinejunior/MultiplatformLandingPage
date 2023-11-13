@@ -1,6 +1,12 @@
 package com.raveline.landingpage.sections
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import com.raveline.landingpage.components.SectionTitle
 import com.raveline.landingpage.components.SkillBar
 import com.raveline.landingpage.model.EnumSection
@@ -11,7 +17,9 @@ import com.raveline.landingpage.styles.AboutTextStyle
 import com.raveline.landingpage.util.Constants
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Constants.LOREM_IPSUM_LONG
+import com.raveline.landingpage.util.ObserveViewportEntered
 import com.raveline.landingpage.util.Res
+import com.raveline.landingpage.util.animatePercentage
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -36,6 +44,7 @@ import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
@@ -102,10 +111,33 @@ fun AboutImage() {
 
 @Composable
 fun AboutMe() {
+
+    var viewportEntered by remember { mutableStateOf(false) }
+    val animatedPercentage = remember { mutableStateListOf(0, 0, 0, 0, 0) }
+    val coroutineScope = rememberCoroutineScope()
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center
     ) {
+
+        ObserveViewportEntered(
+            sectionId = EnumSection.About.id,
+            distanceFromTop = 260.0,
+            onViewportEntered = {
+                viewportEntered = true
+                EnumSkill.values().forEach { skill ->
+                    coroutineScope.launch {
+                        animatePercentage(
+                            percent = skill.percentage.value.toInt(),
+                            onUpdate = {
+                                animatedPercentage[skill.ordinal] = it
+                            }
+                        )
+                    }
+                }
+            }
+        )
 
         SectionTitle(
             section = EnumSection.About,
@@ -130,8 +162,10 @@ fun AboutMe() {
 
         EnumSkill.values().forEach { skill ->
             SkillBar(
+                index = skill.ordinal,
                 name = skill.name,
-                percentage = skill.percentage
+                percentage = if (viewportEntered) skill.percentage else 0.percent,
+                animatedPercent = if(viewportEntered) animatedPercentage[skill.ordinal] else 0
             )
         }
     }
