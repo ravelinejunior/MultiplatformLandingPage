@@ -81,8 +81,8 @@ fun AboutContent() {
     ) {
         SimpleGrid(
             modifier = Modifier.fillMaxWidth(
-                if (breakpoint >= Breakpoint.MD) 100.percent
-                else 90.percent
+                if (breakpoint >= Breakpoint.MD) 90.percent
+                else 100.percent
             ),
             numColumns = numColumns(base = 1, md = 2)
         ) {
@@ -111,7 +111,6 @@ fun AboutImage() {
 
 @Composable
 fun AboutMe() {
-
     var viewportEntered by remember { mutableStateOf(false) }
     val animatedPercentage = remember { mutableStateListOf(0, 0, 0, 0, 0) }
     val coroutineScope = rememberCoroutineScope()

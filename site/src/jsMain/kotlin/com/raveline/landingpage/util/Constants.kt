@@ -26,6 +26,8 @@ object Res {
         const val business = "business_icon.svg"
         const val apple = "apple_icon.svg"
         const val android = "android_icon.svg"
+        const val golang = "golanguin.svg"
+        const val golangWeird = "golang.svg"
         const val link = "link_icon.svg"
         const val user = "user_icon.svg"
         const val shield = "shield_icon.svg"
