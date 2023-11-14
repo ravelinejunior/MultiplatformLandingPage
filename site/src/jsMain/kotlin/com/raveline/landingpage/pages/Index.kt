@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.raveline.landingpage.sections.AboutSection
 import com.raveline.landingpage.sections.MainBackground
 import com.raveline.landingpage.sections.MainSection
+import com.raveline.landingpage.sections.PortfolioSection
 import com.raveline.landingpage.sections.ServiceSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -23,5 +24,6 @@ fun HomePage() {
         MainSection()
         AboutSection()
         ServiceSection()
+        PortfolioSection()
     }
 }

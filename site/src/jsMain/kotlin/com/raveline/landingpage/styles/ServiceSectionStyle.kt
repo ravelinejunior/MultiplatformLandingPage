@@ -51,7 +51,7 @@ val ServiceCardStyle by ComponentStyle {
     * */
     cssRule(suffix = " > #$iconBoxId") {
         Modifier
-            .backgroundColor(Colors.WhiteSmoke)
+            .backgroundColor(Colors.White)
             .transition(
                 CSSTransition(property = "background", duration = 600.ms)
             )

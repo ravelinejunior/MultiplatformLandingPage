@@ -1,0 +1,83 @@
+package com.raveline.landingpage.sections
+
+import androidx.compose.runtime.Composable
+import com.raveline.landingpage.components.PortfolioCard
+import com.raveline.landingpage.components.SectionTitle
+import com.raveline.landingpage.model.EnumPortfolio
+import com.raveline.landingpage.model.EnumSection
+import com.raveline.landingpage.util.Constants.SECTION_WIDTH
+import com.varabyte.kobweb.compose.css.Overflow
+import com.varabyte.kobweb.compose.css.ScrollBehavior
+import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
+import com.varabyte.kobweb.compose.ui.Alignment
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.id
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.overflow
+import com.varabyte.kobweb.compose.ui.modifiers.padding
+import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
+import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
+
+@Composable
+fun PortfolioSection() {
+    Box(
+        modifier = Modifier
+            .id(EnumSection.Portfolio.id)
+            .maxWidth(SECTION_WIDTH.px)
+            .padding(topBottom = 100.px),
+        contentAlignment = Alignment.Center
+    ) {
+        PortfolioContent()
+    }
+}
+
+@Composable
+fun PortfolioContent() {
+    val breakpoint = rememberBreakpoint()
+    Column(
+        modifier = Modifier
+            .fillMaxWidth(
+                if (breakpoint >= Breakpoint.MD) 100.percent
+                else 90.percent
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        SectionTitle(
+            modifier = Modifier
+                .fillMaxWidth()
+                .margin(bottom = 24.px),
+            section = EnumSection.Portfolio
+        )
+
+        PortfolioCards(breakpoint)
+    }
+}
+
+@Composable
+fun PortfolioCards(breakpoint: Breakpoint) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .maxWidth(
+                if (breakpoint >= Breakpoint.MD) 960.px
+                else if (breakpoint > Breakpoint.SM) 624.px
+                else 360.px
+            )
+            .overflow(Overflow.Hidden)
+            .scrollBehavior(ScrollBehavior.Smooth)
+    ) {
+        EnumPortfolio.values().forEach { portfolio ->
+            PortfolioCard(
+                modifier = Modifier.margin(right = 24.px),
+                portfolio = portfolio,
+            )
+        }
+    }
+}
