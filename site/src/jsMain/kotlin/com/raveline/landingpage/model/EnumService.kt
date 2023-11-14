@@ -20,7 +20,7 @@ enum class EnumService(
     Golang(
         icon = Res.Icon.golang,
         imageDesc = "Golang Icon",
-        title = "Golang Backend",
+        title = "Golang",
         description = LOREM_IPSUM_SHORTEST
     ),
     Web(
