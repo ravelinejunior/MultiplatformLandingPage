@@ -53,6 +53,7 @@ fun PortfolioContent() {
             modifier = Modifier
                 .fillMaxWidth()
                 .margin(bottom = 24.px),
+            alignment = Alignment.CenterHorizontally,
             section = EnumSection.Portfolio
         )
 
@@ -70,12 +71,13 @@ fun PortfolioCards(breakpoint: Breakpoint) {
                 else if (breakpoint > Breakpoint.SM) 624.px
                 else 360.px
             )
+            .margin(left = 12.px)
             .overflow(Overflow.Hidden)
             .scrollBehavior(ScrollBehavior.Smooth)
     ) {
         EnumPortfolio.values().forEach { portfolio ->
             PortfolioCard(
-                modifier = Modifier.margin(right = 24.px),
+                modifier = Modifier.margin(right = if(portfolio != EnumPortfolio.Five) 24.px else 0.px),
                 portfolio = portfolio,
             )
         }
