@@ -39,16 +39,7 @@ fun ServiceCard(service: EnumService) {
             .maxWidth(300.px)
             .margin(all = 20.px)
             .padding(20.px)
-            .border(
-                width = 2.px,
-                style = LineStyle.Double,
-                color = Theme.LightInGray.rgb
-            ).borderRadius(
-                topLeft = 20.px,
-                topRight = 20.px,
-                bottomLeft = 20.px,
-                bottomRight = 0.px,
-            )
+
     ) {
         Box(
             modifier = Modifier

@@ -7,6 +7,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.border
+import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
@@ -20,8 +21,13 @@ val ServiceCardStyle by ComponentStyle {
         Modifier
             .border(
                 width = 2.px,
-                style = LineStyle.Double,
+                style = LineStyle.Solid,
                 color = Theme.LightInGray.rgb
+            ).borderRadius(
+                topLeft = 20.px,
+                topRight = 20.px,
+                bottomLeft = 20.px,
+                bottomRight = 0.px,
             )
             .backgroundColor(Colors.White)
             .transition(
@@ -34,7 +40,7 @@ val ServiceCardStyle by ComponentStyle {
         Modifier
             .border(
                 width = 2.px,
-                style = LineStyle.Solid,
+                style = LineStyle.Double,
                 color = Theme.Primary.rgb
             )
             .backgroundColor(Theme.Primary.rgb)
