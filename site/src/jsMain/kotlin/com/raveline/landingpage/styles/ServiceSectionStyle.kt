@@ -31,8 +31,8 @@ val ServiceCardStyle by ComponentStyle {
             )
             .backgroundColor(Colors.White)
             .transition(
-                CSSTransition(property = "border", duration = 1000.ms),
-                CSSTransition(property = "background", duration = 1000.ms)
+                CSSTransition(property = "border", duration = 600.ms),
+                CSSTransition(property = "background", duration = 600.ms)
             )
     }
 
