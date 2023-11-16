@@ -7,6 +7,7 @@ import com.raveline.landingpage.sections.MainBackground
 import com.raveline.landingpage.sections.MainSection
 import com.raveline.landingpage.sections.PortfolioSection
 import com.raveline.landingpage.sections.ServiceSection
+import com.raveline.landingpage.sections.TestimonialSection
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -27,5 +28,6 @@ fun HomePage() {
         ServiceSection()
         PortfolioSection()
         AchievementsSection()
+        TestimonialSection()
     }
 }
