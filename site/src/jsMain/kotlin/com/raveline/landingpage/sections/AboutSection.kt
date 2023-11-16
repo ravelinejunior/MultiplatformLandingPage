@@ -19,7 +19,7 @@ import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Constants.LOREM_IPSUM_LONG
 import com.raveline.landingpage.util.ObserveViewportEntered
 import com.raveline.landingpage.util.Res
-import com.raveline.landingpage.util.animatePercentage
+import com.raveline.landingpage.util.animateNumber
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -127,8 +127,8 @@ fun AboutMe() {
                 viewportEntered = true
                 EnumSkill.values().forEach { skill ->
                     coroutineScope.launch {
-                        animatePercentage(
-                            percent = skill.percentage.value.toInt(),
+                        animateNumber(
+                            number = skill.percentage.value.toInt(),
                             onUpdate = {
                                 animatedPercentage[skill.ordinal] = it
                             }

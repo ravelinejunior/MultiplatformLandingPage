@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.raveline.landingpage.model.EnumSection
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.delay
@@ -20,9 +21,11 @@ fun ObserveViewportEntered(
 
     var viewportEntered by remember { mutableStateOf(false) }
     val listener = remember {
-        EventListener { event ->
+        EventListener {
             val top = document.getElementById(sectionId)?.getBoundingClientRect()?.top
-            if (top != null && top < distanceFromTop) {
+            println("Top = $top")
+            println("Distance Top = $distanceFromTop")
+            if ((top != null) && (top < distanceFromTop)) {
                 viewportEntered = true
             }
         }
@@ -39,12 +42,12 @@ fun ObserveViewportEntered(
 
 }
 
-suspend fun animatePercentage(
-    percent: Int,
+suspend fun animateNumber(
+    number: Int,
     delay: Long = 10L,
     onUpdate: (Int) -> Unit
 ) {
-    (0..percent).forEach {
+    (0..number).forEach {
         delay(delay)
         onUpdate(it)
     }
