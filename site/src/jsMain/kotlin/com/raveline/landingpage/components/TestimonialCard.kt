@@ -7,7 +7,6 @@ import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
-import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
@@ -84,14 +83,9 @@ fun TestimonialCard(
                         Text(testimonial.profession)
                     }
 
-                    if (breakpoint < Breakpoint.MD) {
-                        RatingBar(modifier = Modifier.margin(top = 12.px))
-                    }
+                    RatingBar(modifier = Modifier.margin(top = 12.px))
                 }
-                if (breakpoint >= Breakpoint.MD) {
-                    Spacer()
-                    RatingBar()
-                }
+
             }
             P(
                 attrs =
