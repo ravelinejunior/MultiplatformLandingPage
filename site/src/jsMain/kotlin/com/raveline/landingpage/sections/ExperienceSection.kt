@@ -1,11 +1,16 @@
 package com.raveline.landingpage.sections
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.raveline.landingpage.components.ExperienceCard
 import com.raveline.landingpage.components.SectionTitle
 import com.raveline.landingpage.model.EnumExperience
 import com.raveline.landingpage.model.EnumSection
 import com.raveline.landingpage.util.Constants
+import com.raveline.landingpage.util.ObserveViewportEntered
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -27,7 +32,7 @@ fun ExperienceSection() {
         Modifier
             .id(EnumSection.Experience.id)
             .maxWidth(Constants.SECTION_WIDTH.px)
-            .padding(topBottom = 100.px),
+            .padding(topBottom = 40.px),
         contentAlignment = Alignment.Center
     ) {
         ExperienceContent()
@@ -37,6 +42,18 @@ fun ExperienceSection() {
 @Composable
 fun ExperienceContent() {
     val breakpoint = rememberBreakpoint()
+    var animatedMargin by remember {
+        mutableStateOf(200.px)
+    }
+
+    ObserveViewportEntered(
+        sectionId = EnumSection.Experience.id,
+        distanceFromTop = 500.0,
+        onViewportEntered = {
+            animatedMargin = 60.px
+        }
+    )
+
     Column(
         modifier = Modifier
             .fillMaxWidth(
@@ -63,7 +80,8 @@ fun ExperienceContent() {
                                 || experience == EnumExperience.Fourth
                                 || experience == EnumExperience.Sixth
                         ),
-                experience = experience
+                experience = experience,
+                animatedMargin = animatedMargin
             )
         }
     }

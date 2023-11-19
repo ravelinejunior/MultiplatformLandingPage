@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.raveline.landingpage.model.EnumExperience
 import com.raveline.landingpage.model.Theme
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
+import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -26,14 +27,19 @@ import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.size
+import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import org.jetbrains.compose.web.css.CSSSizeValue
+import org.jetbrains.compose.web.css.CSSUnit
 import org.jetbrains.compose.web.css.LineStyle
+import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.times
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
@@ -41,7 +47,8 @@ import org.jetbrains.compose.web.dom.Text
 fun ExperienceCard(
     breakpoint: Breakpoint,
     active: Boolean = false,
-    experience: EnumExperience
+    experience: EnumExperience,
+    animatedMargin: CSSSizeValue<CSSUnit.px>
 ) {
     SimpleGrid(
         numColumns = numColumns(base = 1, md = 2),
@@ -60,7 +67,8 @@ fun ExperienceCard(
         ExperienceDetails(
             breakpoint = breakpoint,
             active = active,
-            experience = experience
+            experience = experience,
+            animatedMargin = animatedMargin
         )
     }
 }
@@ -102,7 +110,8 @@ fun ExperienceDescription(
 fun ExperienceDetails(
     breakpoint: Breakpoint,
     active: Boolean,
-    experience: EnumExperience
+    experience: EnumExperience,
+    animatedMargin: CSSSizeValue<CSSUnit.px>
 ) {
     Row(
         modifier = Modifier
@@ -119,7 +128,17 @@ fun ExperienceDetails(
             )
         }
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier =
+            Modifier
+                .fillMaxSize()
+                .margin(left = if (breakpoint <= Breakpoint.SM) 0.px else animatedMargin)
+                .transition(
+                    CSSTransition(
+                        property = "margin",
+                        duration = 800.ms,
+                        delay = experience.ordinal * 160.ms
+                    )
+                ),
             verticalArrangement = Arrangement.Center
         ) {
             P(
