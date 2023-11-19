@@ -35,7 +35,7 @@ val AboutImageStyle by ComponentStyle {
             .transition(
                 CSSTransition(
                     property = TransitionProperty.All,
-                    duration = 1000.ms
+                    duration = 600.ms
                 ),
             )
     }
