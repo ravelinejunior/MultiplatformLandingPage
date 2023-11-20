@@ -196,7 +196,7 @@ fun MainText(breakpoint: Breakpoint) {
             Button(
                 attrs = MainButtonStyle
                     .toModifier()
-                    .height(40.px)
+                    .height(60.px)
                     .border(width = 0.px)
                     .borderRadius(r = 8.px)
                     .fontWeight(FontWeight.Bolder)

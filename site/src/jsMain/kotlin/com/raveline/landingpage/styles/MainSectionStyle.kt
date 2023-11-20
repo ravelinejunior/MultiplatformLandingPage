@@ -28,9 +28,24 @@ val NavigationItemStyle by ComponentStyle {
     base {
         Modifier.color(Theme.Secondary.rgb)
             .transition(
-                CSSTransition(
-                    property = "color", duration = 600.ms
-                ),
+                CSSTransition(property = "color", duration = 600.ms),
+            )
+    }
+    anyLink {
+        Modifier.color(Theme.Secondary.rgb)
+    }
+    hover {
+        Modifier.color(Theme.Primary.rgb)
+            .transition(
+                CSSTransition(property = "color", duration = 600.ms),
+            )
+    }
+}
+val NavigationTextItemStyle by ComponentStyle {
+    base {
+        Modifier.color(Theme.Secondary.rgb)
+            .transition(
+                CSSTransition(property = "color", duration = 500.ms),
             )
     }
     anyLink {
@@ -40,9 +55,7 @@ val NavigationItemStyle by ComponentStyle {
         Modifier.color(Theme.Primary.rgb)
             .fontWeight(FontWeight.Bolder)
             .transition(
-                CSSTransition(
-                    property = "style", duration = 600.ms
-                )
+                CSSTransition(property = "color", duration = 500.ms),
             )
     }
 }
@@ -81,12 +94,21 @@ val SocialLinkStyle by ComponentStyle {
 val MainButtonStyle by ComponentStyle {
     base {
         Modifier
-            .width(140.px)
-            .transition(CSSTransition(property = "width", duration = 600.ms))
+            .width(300.px)
+            .fontWeight(FontWeight.Normal)
+            .transition(
+                CSSTransition(property = "width", duration = 500.ms),
+                CSSTransition(property = "font-weight", duration = 500.ms)
+            )
     }
 
     hover {
-        Modifier.width(200.px)
+        Modifier.width(600.px)
+            .fontWeight(FontWeight.Bold)
+            .transition(
+                CSSTransition(property = "width", duration = 500.ms),
+                CSSTransition(property = "font-weight", duration = 500.ms)
+            )
     }
 }
 

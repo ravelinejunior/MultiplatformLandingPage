@@ -5,6 +5,7 @@ import com.raveline.landingpage.model.EnumSection
 import com.raveline.landingpage.model.Theme
 import com.raveline.landingpage.styles.LogoStyle
 import com.raveline.landingpage.styles.NavigationItemStyle
+import com.raveline.landingpage.styles.NavigationTextItemStyle
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Res
 import com.varabyte.kobweb.compose.css.Cursor
@@ -85,11 +86,11 @@ fun RightSide() {
     ) {
         EnumSection.values().take(6).forEach { section ->
             Link(
-                modifier = NavigationItemStyle.toModifier()
+                modifier = NavigationTextItemStyle
+                    .toModifier()
                     .padding(right = 30.px)
                     .fontFamily(LATO_FONT_FAMILY)
                     .fontSize(18.px)
-                    .fontWeight(FontWeight.Normal)
                     .textDecorationLine(TextDecorationLine.None),
                 path = section.path,
                 text = section.title,

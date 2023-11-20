@@ -3,8 +3,8 @@ package com.raveline.landingpage.pages
 import androidx.compose.runtime.Composable
 import com.raveline.landingpage.sections.AboutSection
 import com.raveline.landingpage.sections.AchievementsSection
+import com.raveline.landingpage.sections.ContactSection
 import com.raveline.landingpage.sections.ExperienceSection
-import com.raveline.landingpage.sections.MainBackground
 import com.raveline.landingpage.sections.MainSection
 import com.raveline.landingpage.sections.PortfolioSection
 import com.raveline.landingpage.sections.ServiceSection
@@ -31,5 +31,6 @@ fun HomePage() {
         AchievementsSection()
         TestimonialSection()
         ExperienceSection()
+        ContactSection()
     }
 }

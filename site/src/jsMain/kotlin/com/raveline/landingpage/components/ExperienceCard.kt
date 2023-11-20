@@ -212,7 +212,7 @@ fun ExperienceBoxNumber(
                     .fontFamily(LATO_FONT_FAMILY)
                     .fontSize(14.px)
                     .fontWeight(FontWeight.Bold)
-                    .color(if (active) Colors.White else Theme.Secondary.rgb)
+                    .color(if (active) Colors.White else Theme.Primary.rgb)
                     .toAttrs()
             ) {
                 Text(experience.number)
