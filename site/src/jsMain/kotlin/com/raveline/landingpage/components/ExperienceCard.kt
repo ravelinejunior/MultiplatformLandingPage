@@ -3,6 +3,7 @@ package com.raveline.landingpage.components
 import androidx.compose.runtime.Composable
 import com.raveline.landingpage.model.EnumExperience
 import com.raveline.landingpage.model.Theme
+import com.raveline.landingpage.styles.BoxEffectSectionStyle
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -33,6 +34,7 @@ import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.CSSSizeValue
 import org.jetbrains.compose.web.css.CSSUnit
 import org.jetbrains.compose.web.css.LineStyle
@@ -60,7 +62,6 @@ fun ExperienceCard(
             ),
     ) {
         ExperienceDescription(
-            active = active,
             description = experience.description
         )
 
@@ -75,21 +76,14 @@ fun ExperienceCard(
 
 @Composable
 fun ExperienceDescription(
-    active: Boolean,
     description: String
 ) {
     Box(
-        modifier = Modifier
+        modifier = BoxEffectSectionStyle
+            .toModifier()
             .fillMaxWidth()
             .margin(topBottom = 16.px)
             .padding(all = 16.px)
-            .borderRadius(
-                topRight = 20.px,
-                topLeft = 20.px,
-                bottomLeft = 20.px,
-                bottomRight = 0.px,
-            )
-            .backgroundColor(if (active) Theme.Primary.rgb else Theme.LighterGray.rgb)
     ) {
         P(
             attrs =
@@ -98,7 +92,6 @@ fun ExperienceDescription(
                 .fontFamily(LATO_FONT_FAMILY)
                 .fontSize(16.px)
                 .fontWeight(FontWeight.Normal)
-                .color(if (active) Colors.White else Theme.Secondary.rgb)
                 .toAttrs()
         ) {
             Text(description)
