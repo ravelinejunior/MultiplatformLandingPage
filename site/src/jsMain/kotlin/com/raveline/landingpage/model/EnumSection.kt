@@ -53,5 +53,11 @@ enum class EnumSection(
         title = "Achievements",
         subTitle = "Personal Achievements",
         path = "#achievements"
+    ),
+    Footer(
+        id = "footer",
+        title = "",
+        subTitle = "Raveline @Dev",
+        path = "#footer"
     )
 }
