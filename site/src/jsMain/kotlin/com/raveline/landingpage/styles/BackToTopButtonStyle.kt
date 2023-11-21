@@ -14,7 +14,7 @@ import org.jetbrains.compose.web.css.px
 val BackToTopButtonStyle by ComponentStyle {
     base {
         Modifier
-            .borderRadius(8.px)
+            .borderRadius(20.px)
             .rotate(a = 180.deg)
             .transition(
                 CSSTransition(property = "border-radius", delay = 200.ms),
@@ -24,7 +24,5 @@ val BackToTopButtonStyle by ComponentStyle {
 
     hover {
         Modifier.rotate(a = 0.deg)
-            .borderRadius(32.px)
-
     }
 }

@@ -68,7 +68,7 @@ fun BackToTopButton() {
     ) {
         Box(
             modifier = BackToTopButtonStyle.toModifier()
-                .size(if (breakpoint < Breakpoint.MD) 24.px else 48.px)
+                .size(if (breakpoint < Breakpoint.MD) 36.px else 48.px)
                 .visibility(
                     if (scroll != null && scroll!! > 400.0) Visibility.Visible
                     else Visibility.Hidden
@@ -89,7 +89,7 @@ fun BackToTopButton() {
         ) {
             FaArrowUp(
                 modifier = Modifier.color(Colors.White),
-                size = if (breakpoint < Breakpoint.MD) IconSize.SM else IconSize.XL
+                size = if (breakpoint < Breakpoint.MD) IconSize.LG else IconSize.XL
             )
         }
     }

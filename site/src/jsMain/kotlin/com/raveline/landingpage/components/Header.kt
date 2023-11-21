@@ -4,12 +4,10 @@ import androidx.compose.runtime.Composable
 import com.raveline.landingpage.model.EnumSection
 import com.raveline.landingpage.model.Theme
 import com.raveline.landingpage.styles.LogoStyle
-import com.raveline.landingpage.styles.NavigationItemStyle
 import com.raveline.landingpage.styles.NavigationTextItemStyle
 import com.raveline.landingpage.util.Constants.LATO_FONT_FAMILY
 import com.raveline.landingpage.util.Res
 import com.varabyte.kobweb.compose.css.Cursor
-import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -21,8 +19,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
-import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.onClick
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
 import com.varabyte.kobweb.silk.components.graphics.Image
@@ -36,7 +34,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
 @Composable
-fun Header() {
+fun Header(onMenuClicked: () -> Unit) {
     val breakpoint = rememberBreakpoint()
     Row(
         modifier = Modifier.fillMaxWidth(if (breakpoint > Breakpoint.MD) 80.percent else 90.percent)
@@ -44,7 +42,7 @@ fun Header() {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        LeftSide(breakpoint)
+        LeftSide(breakpoint = breakpoint, onMenuClicked = onMenuClicked)
         if (breakpoint > Breakpoint.MD) {
             RightSide()
         }
@@ -52,7 +50,10 @@ fun Header() {
 }
 
 @Composable
-fun LeftSide(breakpoint: Breakpoint) {
+fun LeftSide(
+    breakpoint: Breakpoint,
+    onMenuClicked: () -> Unit
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -60,7 +61,11 @@ fun LeftSide(breakpoint: Breakpoint) {
         if (breakpoint <= Breakpoint.MD) {
             FaBars(
                 modifier = Modifier
-                    .margin(right = 16.px),
+                    .margin(right = 16.px)
+                    .cursor(Cursor.Pointer)
+                    .onClick {
+                        onMenuClicked()
+                    },
                 size = IconSize.XL
             )
         }
