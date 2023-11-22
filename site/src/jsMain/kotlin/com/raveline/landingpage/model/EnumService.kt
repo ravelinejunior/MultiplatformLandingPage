@@ -32,7 +32,7 @@ enum class EnumService(
     Design(
         icon = Res.Icon.design,
         imageDesc = "Pen Icon",
-        title = "UX/UI Design",
+        title = "Flutter Development",
         description = LOREM_IPSUM_SHORTEST
     ),
     Business(

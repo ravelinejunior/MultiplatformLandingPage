@@ -39,6 +39,8 @@ object Res {
     object Image {
         const val car: String = "car.jpg"
         const val background = "background.svg"
+        const val profile = "profile.jpg"
+        const val prof = "prof.jpg"
         const val logo = "logo.svg"
         const val us = "us.jpeg"
         const val main = "main_image.png"

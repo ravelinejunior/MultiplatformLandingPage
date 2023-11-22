@@ -10,7 +10,7 @@ enum class EnumSkill(
 ) {
     Creative(
         title = "Creative",
-        percentage = 90.percent
+        percentage = 80.percent
     ),
     Accountable(
         title = "Accountable",
@@ -18,14 +18,14 @@ enum class EnumSkill(
     ),
     HardWorking(
         title = "Hard Working",
-        percentage = 80.percent
+        percentage = 100.percent
     ),
     Value(
         title = "Value for Money",
-        percentage = 85.percent
+        percentage = 70.percent
     ),
     Delivery(
         title = "On-Time Delivery",
-        percentage = 75.percent
+        percentage = 80.percent
     )
 }

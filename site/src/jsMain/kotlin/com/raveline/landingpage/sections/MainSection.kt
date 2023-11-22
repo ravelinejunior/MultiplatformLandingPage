@@ -228,7 +228,7 @@ fun MainImage() {
                 .toModifier()
                 .fillMaxWidth()
             ,
-            src = Res.Image.car,
+            src = Res.Image.prof,
             description = "Main Image",
         )
     }

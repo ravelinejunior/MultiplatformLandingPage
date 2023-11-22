@@ -10,13 +10,13 @@ enum class EnumPortfolio(
 ) {
     One(
         image = Res.Image.portfolio1,
-        title = "Kudoe",
-        description = "Web Design"
+        title = "PetGram",
+        description = "Web/Mobile App"
     ),
     Two(
         image = Res.Image.portfolio2,
-        title = "Landing Page for NFT",
-        description = "Frontend"
+        title = "CookingSmart",
+        description = "Web/Mobile Ap"
     ),
     Three(
         image = Res.Image.portfolio3,
