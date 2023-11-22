@@ -17,8 +17,7 @@ val BackToTopButtonStyle by ComponentStyle {
             .borderRadius(20.px)
             .rotate(a = 180.deg)
             .transition(
-                CSSTransition(property = "border-radius", delay = 200.ms),
-                CSSTransition(property = "rotate", delay = 200.ms),
+                CSSTransition(property = "rotate", delay = 100.ms),
             )
     }
 
